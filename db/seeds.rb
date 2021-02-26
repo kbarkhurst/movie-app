@@ -5,7 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-actor1 = Actor.new({ first_name: "Jennifer", last_name: "Aniston", known_for: "Friends" })
-actor2 = Actor.new({ first_name: "Tina", last_name: "Fey", known_for: "30 Rock" })
-actor2.save
-actor1.save
+# actor1 = Actor.new({ first_name: "Jennifer", last_name: "Aniston", known_for: "Friends" })
+# actor2 = Actor.new({ first_name: "Tina", last_name: "Fey", known_for: "30 Rock" })
+# actor2.save
+# actor1.save
+
+# movie2 = Movie.create({ title: "Steel Magnolias", year: 1986, plot: "Real friendships and love endure" })
+movie3 = Movie.create({ title: "Top Gun", year: 1986, plot: "The danger zone" })
