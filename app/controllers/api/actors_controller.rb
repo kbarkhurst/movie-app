@@ -1,9 +1,14 @@
 class Api::ActorsController < ApplicationController
-  def actor1_action
-    @id = 1
-    @actor_id = Actor.find_by(id: @id)
+  def display_firstactor
+    actor_first = Actor.first
+    @output = actor_first
+    render "actors.json.jb"
+  end
 
-    @actor_one = Actor.first
+  def actor_byid
+    id = 7
+    actor_id = Actor.find_by(id: id)
+    @output = actor_id
     render "actors.json.jb"
   end
 end
