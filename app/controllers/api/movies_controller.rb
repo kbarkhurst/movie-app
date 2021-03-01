@@ -1,8 +1,8 @@
 class Api::MoviesController < ApplicationController
   def all_movies
-    all = Movie.all
+    movies_all = Movie.all
 
-    @movies_all = all.map do |movie|
+    @output = movies_all.map do |movie|
       {
         title: movie.title,
         year: movie.year,
@@ -10,11 +10,11 @@ class Api::MoviesController < ApplicationController
       }
     end
 
-    render "all_movies.json.jb"
+    render "movies.json.jb"
   end
 
-  def single_movie
-    @movie_data = Movie.first
-    render "single_movie.json.jb"
+  def first_movie
+    @output = Movie.first
+    render "movies.json.jb"
   end
 end
