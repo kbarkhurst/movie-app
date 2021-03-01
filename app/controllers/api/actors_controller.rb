@@ -11,4 +11,20 @@ class Api::ActorsController < ApplicationController
     @output = actor_id
     render "actors.json.jb"
   end
+
+  def param_actor_byfirstname
+    input_message = params[:first_name].capitalize
+    actor = Actor.find_by(first_name: input_message)
+    # @output = actor
+    @output = actor
+    render "actors.json.jb"
+  end
+
+  def param_actor_byid
+    input_message = params[:id]
+    actor = Actor.find_by(id: input_message)
+    # @output = actor
+    @output = actor
+    render "actors.json.jb"
+  end
 end
