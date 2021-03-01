@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     get "/all_movies" => "movies#all_movies"
     get "/first_movie" => "movies#first_movie"
     get "/firstname_params" => "actors#param_actor_byfirstname"
+    get "/firstname_params/:first_name" => "actors#param_actor_byfirstname"
     get "/byid_params" => "actors#param_actor_byid"
+    put "/byid_params" => "actors#param_actor_byid"
   end
 end
