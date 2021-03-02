@@ -5,6 +5,16 @@ class Api::MoviesController < ApplicationController
     render "index.json.jb"
   end
 
+  def create
+    @movie = Movie.new(
+      title: params[:title],
+      year: params[:year],
+      plot: params[:plot],
+    )
+    @movie.save
+    render "show.json.jb"
+  end
+
   def first_movie
     @output = Movie.first
     render "movies.json.jb"
