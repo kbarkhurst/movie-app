@@ -1,4 +1,10 @@
 class Api::ActorsController < ApplicationController
+  def index
+    all_actors = Actor.all
+    @actors = all_actors
+    render "index.json.jb"
+  end
+
   def display_firstactor
     actor_first = Actor.first
     @output = actor_first
