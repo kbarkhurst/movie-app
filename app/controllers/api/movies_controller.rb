@@ -5,6 +5,12 @@ class Api::MoviesController < ApplicationController
     render "index.json.jb"
   end
 
+  def show
+    movie_id = params[:id]
+    @movie = Movie.find_by(id: movie_id)
+    render "show.json.jb"
+  end
+
   def create
     @movie = Movie.new(
       title: params[:title],
@@ -15,8 +21,23 @@ class Api::MoviesController < ApplicationController
     render "show.json.jb"
   end
 
-  def first_movie
-    @output = Movie.first
-    render "movies.json.jb"
+  def update
+    movie_id = params[:id]
+    @movie = Movie.find_by(id: movie_id)
+
+    @movie.title = params[:title] || @movie.title
+    @movie.year = params[:year] || @movie.year
+    @movie.plot = params[:plot] || @movie.plot
+
+    @movie.save
+
+    render "show.json.jb"
+  end
+
+  def destroy
+    movie_id = params[:id]
+    movie = Movie.find_by(id: movie_id)
+    movie.destroy
+    render json: { message: "Your movie was successfully deleted" }
   end
 end
