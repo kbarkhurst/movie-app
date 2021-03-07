@@ -1,9 +1,4 @@
 class Api::ActorsController < ApplicationController
-  validates :first_name, length: { minimum: 2 }
-  validates :last_name, length: { minimum: 2 }
-  validates :known_for, presence: true
-  validates :age, length: { minimum: 13 }
-
   def index
     @actors = Actor.all
     render "index.json.jb"
@@ -17,8 +12,11 @@ class Api::ActorsController < ApplicationController
       gender: params[:gender],
       age: params[:age],
     )
-    @actor.save
-    render "show.json.jb"
+    if @actor.save
+      render "show.json.jb"
+    else
+      render json: { errors: @actor.errors.full_messages }, status: 406
+    end
   end
 
   def show
@@ -37,8 +35,11 @@ class Api::ActorsController < ApplicationController
     @actor.gender = params[:gender] || @actor.gender
     @actor.age = params[:age] || @actor.age
 
-    @actor.save
-    render "show.json.jb"
+    if @actor.save
+      render "show.json.jb"
+    else
+      render json: { errors: @actor.errors.full_messages }, status: 406
+    end
   end
 
   def destroy
