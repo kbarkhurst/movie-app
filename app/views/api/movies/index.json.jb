@@ -6,5 +6,7 @@
     plot: movie.plot,
     director: movie.director,
     english: movie.english,
+    genres: movie.genres,
+    genre_names: movie.genre_names,
   }
 end
