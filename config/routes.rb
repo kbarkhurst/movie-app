@@ -32,6 +32,8 @@ Rails.application.routes.draw do
     # DELETE "/movies/3" - Deletes a specific movie
     delete "/movies/:id" => "movies#destroy"
 
+    post "/movie_genres" => "movie_genres#create"
+
     ###### USERS #######
     post "/users" => "users#create"
 
