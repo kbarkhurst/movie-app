@@ -5,5 +5,7 @@
   plot: @movie.plot,
   director: @movie.director,
   english: @movie.english,
+  image: @movie.image,
   genres: @movie.genres,
+  user_id: @movie.user_id,
 }
